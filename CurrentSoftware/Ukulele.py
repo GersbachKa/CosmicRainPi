@@ -10,11 +10,7 @@ class Uke:
         print()
     
     def play(self, songNum):
-        try:
-            self.allSongs[songNum-1].play()
-            return 0
-        except:
-            return 1
+        self.allSongs[songNum].play()
     
     def printSong(self):
         pass

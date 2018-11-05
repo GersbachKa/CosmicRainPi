@@ -60,14 +60,14 @@ def doFunction(u,i):
             if(s=='0'):
                 break
             try:
-                i = int(s)
-                temp = u.play(i)
-                if(temp==1):
-                    raise ValueError()
+                s = int(s)-1
+                u.play(s)
                 print("Song Finished.")
                 break
-            except ValueError:
-                print("Not a valid number")
+            except ValueError as e:
+                #print(s)
+                #print(e)
+                print(S+": Not a valid number")
     
     return
 

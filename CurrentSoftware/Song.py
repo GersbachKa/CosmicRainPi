@@ -10,7 +10,7 @@ class Song:
         self.noteList = []
         try:
             file = open('Songs/'+songName,"r")
-            print("File found!")
+            #print("File found!")
             firstline = file.readline().replace('\n','') #Remove the carriage returns
             self.name = firstline.split('\"')[1] #Takes the name given within the quotes
             self.tempo = int(firstline.split(',')[1][7:]) #Takes the number after the "tempo="
@@ -32,7 +32,6 @@ class Song:
                             self.noteList.append(Sound.Note("REST"))
                         else:
                             self.noteList.append(Sound.Note(beat))
-                            print('Success')
                     else: #Chord
                         beat = beat.split(',') 
                         for a in beat: #checks for collisions, multiple notes on one string
@@ -53,7 +52,8 @@ class Song:
     
     def play(self):
         #Incorporate tempo
-        for n in noteList:
+        for n in self.noteList:
             n.play()
+            print(n)
             time.sleep(1) #Change this value for tempo
         
