@@ -44,7 +44,7 @@ will move all of the motors to location 400
 
 [end of operational overview]
 
-General outline:
+# General Outline:
 
 The goal of this software is to command a Pi to autonomously play a Ukelele. The software is comprised of two main parts: 1) motor control and 2) environmental integration. 
 
