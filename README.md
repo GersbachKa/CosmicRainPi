@@ -4,15 +4,15 @@ This software is meant to run on a Raspberry Pi 3, running Raspbian
 # Operation instructions:
 **1) Find the IP of the Pi**
 
-Control the Pi by SSHing into it using your favorite SSH client (we use PuTTY). Since the Pi generates a new IP every time it starts up, the first step is to find the IP. .
+We control the Pi by SSHing into it using an SSH client (we use PuTTY). Since the Pi generates a new IP every time it starts up, the first step is to find the IP.
 
-A) Use the HDMI port on the Pi and connect it to a monitor. Plug a USB keyboard into the USB port of the Pi. If you're asked to login, the credentials are pi//cosmic
+A) Plug the Pi into a monitor by using the HDMI out on the Pi. Plug a USB keyboard into the USB port of the Pi. If you're asked to login, the credentials are     username: pi      password: cosmic
 
-B) Press ctrl+alt+T to open up a terminal window and type ifconfig (not ipconfig). Record the WLAN IP - so far it starst with 10.156. ... at least on the Bothell campus
+B) Press ctrl+alt+T to open up a terminal window and type ifconfig (not ipconfig). Record the WLAN IP - so far it starst with 10.156. ... at least on the Bothell campus. 
 
 **2) Connect to the Pi from your computer**
 
-SSH into the Pi by using your favorite client and using the IP you recorded in step 1. 
+SSH into the Pi by using your favorite client and using the IP you recorded in step 1. For PuTTY, this is as easy as just typing the IP into the box and leaving all othe settings at their defaults.
 
 **3) Navigate to the proper directory**
 
