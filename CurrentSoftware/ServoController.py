@@ -1,4 +1,9 @@
+'''
+Servo limits 1-550
+'''
+
 import smbus
+import time
 
 class _motorHatController:
 
@@ -23,8 +28,12 @@ class _motorHatController:
         self.bus.close()
 
     def setup(self):
-        self.bus.write_byte_data(self.deviceAddr, 0, 0x20)
-        self.bus.write_byte_data(self.deviceAddr, 0xfe, 0x1e)
+        self.bus.write_byte_data(self.deviceAddr,0,0x20)
+        time.sleep(.1)
+        self.bus.write_byte_data(self.deviceAddr, 0, 0x10)
+        time.sleep(.1)
+        self.bus.write_byte_data(self.deviceAddr, 0xFE, 0x79)
+        self.bus.write_byte_data(self.deviceAddr,0,0x20)
         
         for a in self.starAddr:
             self.bus.write_word_data(self.deviceAddr,a, 0)
@@ -39,3 +48,6 @@ class _motorHatController:
 _s = _motorHatController()
 def move(num,inp):
     _s.mvSr(num,inp)
+
+def stop():
+    _s.close()
