@@ -6,11 +6,11 @@ strumPorts = [0,1,2,3]
 def strummer(stringNum):
     if(strings[stringNum]==0):
         #move Strummer direction 1
-        sc.move(strumPorts[stringNum],405) #Change this to modify the length of rotation
+        sc.move(strumPorts[stringNum],400) #Change this to modify the length of rotation
         strings[stringNum]=1
         pass
     else:
         #move Strummer direction 0
-        sc.move(strumPorts[stringNum],205) #Change this to modify the length of rotation
+        sc.move(strumPorts[stringNum],200) #Change this to modify the length of rotation
         strings[stringNum]=0
         pass

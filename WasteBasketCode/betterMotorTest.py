@@ -6,7 +6,7 @@ class fineTest:
     def __init__(self):
         GPIO.setmode(GPIO.BOARD)
         self.pin = 7 #Pin number of data wire
-        GPIO.setup(pin,GPIO.OUT)
+        GPIO.setup(self.pin,GPIO.OUT)
         self.pwm = GPIO.PWM(self.pin,50)
         self.pwm.start(5)
         self.pwm.ChangeDutyCycle(2.5)
@@ -25,7 +25,7 @@ class fineTest:
             return
         else:
             self.pwm.ChangeDutyCycle(degrees/factor)
-            print("Moved to : "+ degrees +" degrees.")
+            #print("Moved to : "+ degrees +" degrees.")
             return
     
     def clean(self):

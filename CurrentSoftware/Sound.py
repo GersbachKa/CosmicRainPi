@@ -25,8 +25,10 @@ class Sound:
     def __init__(self):
         pass
     def play(self):
-        pass    
-            
+        pass
+    def __str__(self):
+        pass
+
 class Note(Sound):
     def __init__(self, innote):
         try:
@@ -34,25 +36,29 @@ class Note(Sound):
         except:
             raise NewExceptions.wrongFormatException(innote+": Note is not playable")
         self.note = innote.upper()
-    
+
     def play(self): #TOTAL DELAY = 2ms
         if(self.note=='REST'):
             #Don't play, still delay
+            time.sleep(.2)
             return
         if(Sound.npins[self.note]==-1):
             #Delay for fake fret
             time.sleep(.1)
             Strummer.strummer(int(self.note[-1]))
+            time.sleep(.1)
             return
-        
-        sc.move(Sound.npins[self.note],550) #Fret down
+
+        sc.move(Sound.npins[self.note],400) #Fret down
         time.sleep(.1) #Wait for fret to go down
         Strummer.strummer(int(self.note[-1])) #Strum
         time.sleep(.1) #Wait for strum
-        sc.move(Sound.npins[self.note],1) #Fret down
+        sc.move(Sound.npins[self.note],200) #Fret up
         return
-        
-        
+
+    def __str__(self):
+        return self.note
+
 class Chord(Sound):
     def __init__(self,innotes):
         self.notes=[]
@@ -68,13 +74,14 @@ class Chord(Sound):
     
     def play(self): #TOTAL DELAY = 2ms
         for note in self.notes: #Move down frets
-            sc.move(Sound.npins[note],550) #Move them all down
+            sc.move(Sound.npins[note],400) #Move them all down
         time.sleep(.1) #Wait for fret
         for note in self.notes: #Move strummers
             Strummer.strummer(int(note[-1])) #Strum
         time.sleep(.1) #wait for strum
         for note in self.notes: #Move down frets
-            sc.move(Sound.npins[note],205) #Move them all down
+            sc.move(Sound.npins[note],200) #Move them all down
         return
-        
-        
+
+    def __str__(self):
+        return self.notes

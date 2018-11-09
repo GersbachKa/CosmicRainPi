@@ -69,7 +69,7 @@ def doFunction(u,i):
             except ValueError as e:
                 #print(s)
                 #print(e)
-                print(S+": Not a valid number")
+                print(s+": Not a valid number")
     if(i==4):
         while(True):
             print("Motor to move:Location , type 0 to exit")
@@ -77,13 +77,16 @@ def doFunction(u,i):
             if(s=='0'):
                 break
             s1 = s.split(':')
-            s1[0]=s1[0].replace(':','')
-            s1[1]=s1[1].replace(':','')
-            if(s1[0].find('all')!=-1):
-                for j in range(0,16):
-                    sc.move(j,int(s1[1]))
+            if(len(s1)==1):
+                sc.move(0,int(s1[0]))
             else:
-                sc.move(int(s1[0]),int(s1[1]))
+                s1[0]=s1[0].replace(':','')
+                s1[1]=s1[1].replace(':','')
+                if(s1[0].find('all')!=-1):
+                    for j in range(0,16):
+                        sc.move(j,int(s1[1]))
+                else:
+                    sc.move(int(s1[0]),int(s1[1]))
             
            
             
