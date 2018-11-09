@@ -24,6 +24,7 @@ def functionSelector(u):
             doFunction(u,i)
 
 def doFunction(u,i):
+    print()
     if(i==1):
         while(True):
             #Print the directory of Songs

@@ -27,6 +27,7 @@ class Uke:
             return 1
     
     def listSongs(self):
+        print("Available songs: ")
         if(len(self.allSongs)<1):
             print("No songs imported!")
         i = 1
