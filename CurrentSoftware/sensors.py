@@ -36,10 +36,12 @@ class LightSensor:
         return self.total
     
 def main()
+    g = GeigerCounter()
+    L = LightSensor()
     
 
 def calibrate():
-    
+    pass
     
 if __name__=='__main__':
     main()
