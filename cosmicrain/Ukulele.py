@@ -1,6 +1,7 @@
 #Uke.py
 #Should be a singleton
-import os, Song, NewExceptions
+import os
+from cosmicrain import Song, NewExceptions
 
 class Uke:
     def __init__(self):

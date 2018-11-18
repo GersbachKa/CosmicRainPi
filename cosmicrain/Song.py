@@ -3,7 +3,8 @@ Assumptions:-The name of the song is the same as that of the file.
               Without this, multiple imports of the same song
             -Does not check for accuracy within time signature (Maybe in a future version)
 '''
-import os, NewExceptions, time, Sound, Sensors
+import os, time
+from cosmicrain import NewException, Sound, Sensors
 
 class Song:
     def __init__(self,songName):

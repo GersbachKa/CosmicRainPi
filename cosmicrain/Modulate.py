@@ -1,4 +1,5 @@
-import time, os, Song
+import time, os
+from cosmicrain import Song
 
 def modGeiger(level):
     pass

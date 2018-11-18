@@ -1,9 +1,8 @@
 '''
-Servo limits 1-550
+Servo limits 205-600
 '''
 
-import smbus
-import time
+import smbus, time
 
 class _motorHatController:
 

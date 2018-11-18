@@ -1,5 +1,5 @@
 #Strummer.py
-import ServoController as sc
+from cosmicrain import ServoController as sc
 strings = [0, 0, 0, 0]
 strumPorts = [0,1,2,3]
 

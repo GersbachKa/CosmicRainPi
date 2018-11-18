@@ -1,6 +1,5 @@
 import time
-#change this later
-#from CurrentSoftware import Modulate
+from cosmicrain import Modulate
 import RPi.GPIO as GPIO
 from PiPocketGeiger import RadiationWatch
 
@@ -9,8 +8,6 @@ geigerNoisePin=38
 lightSensorPin
 lightCalibration = 10 #find an average calibration
 geigerCalibration = 10 #find an average calibration
-#Useful commands:
-#time.localtime()[5] get time in seconds
 
 class geiger:
     def __init__(self):

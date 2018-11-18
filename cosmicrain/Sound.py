@@ -1,6 +1,7 @@
 #Sound.py
-import time, Strummer, NewExceptions
-import ServoController as sc
+import time 
+from cosmicrain import Strummer, NewExceptions
+from cosmicrain import ServoController as sc
 
 #Available notes: G0,C1,D1,F1,E2,Gb2,G2,A2,B2,A3,B3,C3,D3,E3 
 class Sound:

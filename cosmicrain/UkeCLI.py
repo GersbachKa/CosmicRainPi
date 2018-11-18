@@ -1,6 +1,9 @@
 #UkeCLI.py
-import os, Ukulele
-import ServoController as sc
+import os, sys
+sys.path.insert(0,'.')
+
+from cosmicrain import Ukulele
+from cosmicrain import ServoController as sc
 
 def main():
     print("Cosmic Rain Ukelele V0.1")
