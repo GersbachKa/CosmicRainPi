@@ -3,11 +3,12 @@ Assumptions:-The name of the song is the same as that of the file.
               Without this, multiple imports of the same song
             -Does not check for accuracy within time signature (Maybe in a future version)
 '''
-import os, NewExceptions, time, Sound
+import os, NewExceptions, time, Sound, Sensors
 
 class Song:
     def __init__(self,songName):
         self.noteList = []
+        self.noteToPlay = 0
         try:
             file = open('Songs/'+songName,"r")
             #print("File found!")
@@ -52,8 +53,10 @@ class Song:
     
     def play(self):
         #Incorporate tempo
+        self.noteToPlay = 0
         for n in self.noteList:
             n.play()
             print(n)
             time.sleep(1) #Change this value for tempo
+            self.noteToPlay +=1
         
