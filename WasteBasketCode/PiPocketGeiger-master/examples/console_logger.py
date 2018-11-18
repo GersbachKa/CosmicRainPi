@@ -8,11 +8,12 @@ Released under MIT License. See LICENSE file.
 By Yoan Tournade <yoan@ytotech.com>
 """
 import time
+import RPi.GPIO as GPIO
 from PiPocketGeiger import RadiationWatch
 
 if __name__ == "__main__":
     # Create the RadiationWatch object, specifying the used GPIO pins ...
-    with RadiationWatch(24, 23) as radiationWatch:
+    with RadiationWatch(40, 38,numbering=GPIO.BOARD) as radiationWatch:
         while 1:
             # ... and simply print readings each 5 seconds.
             print(radiationWatch.status())
