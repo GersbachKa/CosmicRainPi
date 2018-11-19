@@ -1,7 +1,17 @@
 #Sound.py
 import time 
-from cosmicrain import Strummer, NewExceptions
-from cosmicrain import ServoController as sc
+from cosmicrain import NewExceptions
+
+buffer = .2
+pcCompat = False
+
+try:
+    from cosmicrain import ServoController as sc
+    from cosmicrain import Strummer
+except:
+    from cosmicrain import SoundController as snd
+    pcCompat = True
+
 
 #Available notes: G0,C1,D1,F1,E2,Gb2,G2,A2,B2,A3,B3,C3,D3,E3 
 class Sound:
@@ -38,22 +48,27 @@ class Note(Sound):
             raise NewExceptions.wrongFormatException(innote+": Note is not playable")
         self.note = innote.upper()
 
-    def play(self): #TOTAL DELAY = 2ms
+    def play(self):
+        if pcCompat:
+            time.sleep(buffer)
+            snd.play1(self.note)
+            time.sleep(buffer)
+            return
         if(self.note=='REST'):
             #Don't play, still delay
-            time.sleep(.2)
+            time.sleep(2*buffer)
             return
         if(Sound.npins[self.note]==-1):
             #Delay for fake fret
-            time.sleep(.1)
+            time.sleep(buffer)
             Strummer.strummer(int(self.note[-1]))
-            time.sleep(.1)
+            time.sleep(buffer)
             return
 
         sc.move(Sound.npins[self.note],400) #Fret down
-        time.sleep(.1) #Wait for fret to go down
+        time.sleep(buffer) #Wait for fret to go down
         Strummer.strummer(int(self.note[-1])) #Strum
-        time.sleep(.1) #Wait for strum
+        time.sleep(buffer) #Wait for strum
         sc.move(Sound.npins[self.note],200) #Fret up
         return
 
@@ -73,13 +88,18 @@ class Chord(Sound):
                 raise NewExceptions.wrongFormatException(n+"Note is not playable")
             self.notes.append(n.upper())
     
-    def play(self): #TOTAL DELAY = 2ms
+    def play(self):
+        if pcCompat:
+            time.sleep(buffer)
+            snd.playN(self.notes)
+            time.sleep(buffer)
+            return
         for note in self.notes: #Move down frets
             sc.move(Sound.npins[note],400) #Move them all down
-        time.sleep(.1) #Wait for fret
+        time.sleep(buffer) #Wait for fret
         for note in self.notes: #Move strummers
             Strummer.strummer(int(note[-1])) #Strum
-        time.sleep(.1) #wait for strum
+        time.sleep(buffer) #wait for strum
         for note in self.notes: #Move down frets
             sc.move(Sound.npins[note],200) #Move them all down
         return
