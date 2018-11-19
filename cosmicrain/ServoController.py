@@ -3,7 +3,6 @@ Servo limits 205-600
 '''
 
 import smbus, time
-
 class _motorHatController:
 
     def __init__(self):
@@ -37,7 +36,7 @@ class _motorHatController:
         for a in self.starAddr:
             self.bus.write_word_data(self.deviceAddr,a, 0)
         
-        print("Object created")
+        #print("Object created")
         
     def mvSr(self,num,inp):
         self.bus.write_word_data(self.deviceAddr,self.endAddr[num],inp)

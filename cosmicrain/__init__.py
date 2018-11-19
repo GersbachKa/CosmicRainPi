@@ -11,4 +11,4 @@ import UkeCLI
 import Ukulele
 '''
 
-__all__ = ["Modulate", "NewExceptions", "Sensors", "ServoController", "Song", "Sound", "Strummer", "UkeCLI", "Ukulele"]
+__all__ = ["SoundController","Modulate", "NewExceptions", "Sensors", "ServoController", "Song", "Sound", "Strummer", "UkeCLI", "Ukulele"]
