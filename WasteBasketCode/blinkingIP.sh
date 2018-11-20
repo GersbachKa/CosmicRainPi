@@ -26,20 +26,30 @@ function bignumber {
 }
 function blink {
     n=$1
-    for ((j=$n; j>0; j--)) ; do
-        eval "$on"
-        sleep .2
-        eval "$off"
-	sleep .2
-    done
+    if (( $n == 0 ))
+    then
+        blinklong
+    else
+        for ((j=$n; j>0; j--)) ; do
+            eval "$on"
+            sleep .2
+            eval "$off"
+	    sleep .2
+        done
+    fi
+}
+function blinklong {
+    eval "$on"
+    sleep 1
+    eval "$off"
+    sleep .2
 }
 
 sleep 1
 eval "$on"
 sleep 10
-blink 20
+eval "$off"
 sleep 5
-
 
 ipI=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1') #Get the IP address
 separate $ipI
