@@ -13,25 +13,26 @@ except:
     pcCompat = True
 
 
-#Available notes: G0,C1,D1,F1,E2,Gb2,G2,A2,B2,A3,B3,C3,D3,E3 
+#Available notes: G0,G#0,B0,C0,C1,D1,E1,F1,E2,F2,G2,A3,B3,C3,D3 
 class Sound:
     #notesToServos DICTIONARY
     npins = {
         'G0':-1, #Number in string corresponds to the string to play
-        'C1':4,
-        'D1':5,
-        'F1':6,
+        'G#0':4,
+        'B0':5,
+        'C0':6,
+        'C1':-1,
+        'D1':7,
+        'E1':8,
+        'F1':9,
         'E2':-1,
-        'GB2':7,
-        'G2':8,
-        'A2':9,
-        'B2':10,
+        'F2':10,
+        'G2':11,
         'A3':-1,
-        'B3':11,
-        'C3':12,
-        'D3':13,
-        'E3':14,
-        'REST':-1,
+        'B3':12,
+        'C3':13,
+        'D3':14,
+        'REST':-1
     }
     def __init__(self):
         pass

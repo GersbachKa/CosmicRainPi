@@ -40,7 +40,7 @@ class Uke:
         return len(self.allSongs)
     
     def autoImport(self):
-        directories = os.listdir('Songs')
+        directories = os.listdir('cosmicrain/Songs')
         for d in directories:
             if d.find('.txt')!=-1:
                 self.getSong(d)

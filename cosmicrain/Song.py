@@ -4,14 +4,14 @@ Assumptions:-The name of the song is the same as that of the file.
             -Does not check for accuracy within time signature (Maybe in a future version)
 '''
 import os, time
-from cosmicrain import NewException, Sound, Sensors
+from cosmicrain import NewExceptions, Sound, Sensors
 
 class Song:
     def __init__(self,songName):
         self.noteList = []
         self.noteToPlay = 0
         try:
-            file = open('Songs/'+songName,"r")
+            file = open('cosmicrain/Songs/'+songName,"r")
             #print("File found!")
             firstline = file.readline().replace('\n','') #Remove the carriage returns
             self.name = firstline.split('\"')[1] #Takes the name given within the quotes
@@ -53,11 +53,18 @@ class Song:
         return self.name
     
     def play(self):
-        #Incorporate tempo
-        self.noteToPlay = 0
-        for n in self.noteList:
-            n.play()
-            print(n)
-            time.sleep(1) #Change this value for tempo
-            self.noteToPlay +=1
+        try:
+            #Incorporate tempo
+            self.noteToPlay = 0
+            self.delayTime = (60.0/self.tempo)-(2*Sound.buffer)
+            print(self.delayTime)
+            for n in self.noteList:
+                n.play()
+                print(n)
+                time.sleep(self.delayTime) #Change this value for tempo
+                self.noteToPlay +=1
+        except Exception as e:
+            print("An error occured: "+e)
+       
+           
         

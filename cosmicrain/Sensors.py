@@ -5,7 +5,7 @@ from PiPocketGeiger import RadiationWatch
 
 geigerSignalPin=40
 geigerNoisePin=38
-lightSensorPin
+lightSensorPin = 16
 lightCalibration = 10 #find an average calibration
 geigerCalibration = 10 #find an average calibration
 
@@ -78,10 +78,10 @@ def calibrate(sensitivity='medium'):
     lAverage += l1.getSum()
     gAverage = gAverage/2
     lAverage = lAverage/2
-    if(sensativity='low'):
+    if(sensativity=='low'):
         geigerCalibration = gAverage*0.9
         lightCalibration = lAverage*0.9
-    elif(sensativity='medium'):
+    elif(sensativity=='medium'):
         geigerCalibration = gAverage - 1 
         lightCalibration = lAverage - 1
     else:

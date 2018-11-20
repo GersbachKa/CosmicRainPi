@@ -33,7 +33,7 @@ def doFunction(u,i):
             #Print the directory of Songs
             print("Which song to Import?")
             i = 1
-            theDir = os.listdir('Songs')
+            theDir = os.listdir('cosmicrain/Songs')
             for file in theDir:
                 if(file.find('.txt')==-1):
                     theDir.remove(file)
