@@ -2,6 +2,8 @@
 import time 
 from cosmicrain import NewExceptions
 
+downFret = 485
+upFret = 450
 buffer = .2
 pcCompat = False
 
@@ -66,11 +68,11 @@ class Note(Sound):
             time.sleep(buffer)
             return
 
-        sc.move(Sound.npins[self.note],400) #Fret down
+        sc.move(Sound.npins[self.note],downFret) #Fret down
         time.sleep(buffer) #Wait for fret to go down
         Strummer.strummer(int(self.note[-1])) #Strum
         time.sleep(buffer) #Wait for strum
-        sc.move(Sound.npins[self.note],200) #Fret up
+        sc.move(Sound.npins[self.note],upFret) #Fret up
         return
 
     def __str__(self):
@@ -96,13 +98,13 @@ class Chord(Sound):
             time.sleep(buffer)
             return
         for note in self.notes: #Move down frets
-            sc.move(Sound.npins[note],400) #Move them all down
+            sc.move(Sound.npins[note],downFret) #Move them all down
         time.sleep(buffer) #Wait for fret
         for note in self.notes: #Move strummers
             Strummer.strummer(int(note[-1])) #Strum
         time.sleep(buffer) #wait for strum
         for note in self.notes: #Move down frets
-            sc.move(Sound.npins[note],200) #Move them all down
+            sc.move(Sound.npins[note],upFret) #Move them all down
         return
 
     def __str__(self):

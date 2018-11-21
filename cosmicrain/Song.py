@@ -4,7 +4,7 @@ Assumptions:-The name of the song is the same as that of the file.
             -Does not check for accuracy within time signature (Maybe in a future version)
 '''
 import os, time
-from cosmicrain import NewExceptions, Sound, Sensors
+from cosmicrain import NewExceptions, Sound, Sensors, ServoController
 
 class Song:
     def __init__(self,songName):
@@ -53,6 +53,8 @@ class Song:
         return self.name
     
     def play(self):
+        ServoController.reset()
+        
         try:
             #Incorporate tempo
             self.noteToPlay = 0

@@ -3,6 +3,7 @@ Servo limits 205-600
 '''
 
 import smbus, time
+from cosmicrain import Strummer
 class _motorHatController:
 
     def __init__(self):
@@ -49,3 +50,10 @@ def move(num,inp):
 
 def stop():
     _s.close()
+    
+def reset():
+    for i in range(0,15):
+        move(i,450)
+    Strummer.reset()
+    
+    
