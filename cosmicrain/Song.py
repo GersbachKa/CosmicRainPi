@@ -53,8 +53,6 @@ class Song:
         return self.name
     
     def play(self):
-        ServoController.reset()
-        
         try:
             #Incorporate tempo
             self.noteToPlay = 0

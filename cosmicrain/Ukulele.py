@@ -2,14 +2,16 @@
 #Should be a singleton
 import os
 from cosmicrain import Song, NewExceptions
+from cosmicrain import ServoController as sc
 
 class Uke:
     def __init__(self):
         self.allSongs = []
         print("Running Auto-Import.")
         self.autoImport();
-        print()
-    
+        print("Resetting servos")
+        sc.reset()
+
     def play(self, songNum):
         self.allSongs[songNum].play()
     
